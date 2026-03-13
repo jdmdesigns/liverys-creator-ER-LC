@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Livery Design ER:LC</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Poppins;
+  background:linear-gradient(180deg,#1f1f3a,#12122a);
+  color:white;
+  font-size:18px;
+}
+header{
+  background:#162447;
+  padding:40px;
+  text-align:center;
+}
+header h1{
+  color:#f39c12;
+  font-size:50px;
+}
+nav{
+  background:#1a1a2e;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  padding:10px;
+}
+nav button{
+  background:none;
+  border:none;
+  color:white;
+  padding:20px;
+  font-size:18px;
+  cursor:pointer;
+  font-weight:bold;
+}
+nav button:hover{color:#f39c12;}
+section{
+  display:none;
+  padding:60px;
+  max-width:1400px;
+  margin:auto;
+}
+section.active{display:block;}
+.hero{
+  text-align:center;
+  padding:420px 40px;
+  background:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+  url("https://via.placeholder.com/1600x700") center/cover;
+  border-radius:15px;
+}
+.hero h1{font-size:55px;}
+.hero p{font-size:24px;}
+.roblox-btn{
+  background:#00b06f;
+  border:none;
+  padding:18px 30px;
+  border-radius:10px;
+  color:white;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:18px;
+  transition: all 0.3s ease;
+}
+.roblox-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #00ffae;
+}
+.card{
+  background:#24244a;
+  padding:35px;
+  border-radius:15px;
+  margin-bottom:30px;
+}
+.marketplace{
+  display:flex;
+  gap:35px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+.pack{
+  background:#24244a;
+  padding:30px;
+  width:320px;
+  border-radius:15px;
+  text-align:center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.pack:hover{
+  transform: translateY(-5px);
+  box-shadow:0 10px 25px rgba(0,255,174,0.3);
+}
+.pack h3{font-size:28px;}
+.pack p{font-size:20px;}
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:30px;
+}
+.portfolio-grid img{
+  width:100%;
+  border-radius:12px;
+  cursor:pointer;
+  transition: transform 0.3s ease;
+}
+.portfolio-grid img:hover{transform: scale(1.05);}
+.review{
+  background:#24244a;
+  padding:25px;
+  border-radius:10px;
+  margin-bottom:20px;
+}
+input,textarea,select{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:8px;
+  margin-bottom:14px;
+  font-size:16px;
+}
+footer{
+  background:#162447;
+  padding:30px;
+  text-align:center;
+}
+#livePurchase{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#24244a;
+  padding:15px;
+  border-radius:8px;
+  display:none;
+  z-index:1000;
+}
+#lightbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:999;
+}
+#lightbox img{
+  max-width:90%;
+  border-radius:12px;
+}
+</style>
+</head>
+<body>
+
+<header>
+<h1>Livery Design ER:LC</h1>
+<p>Professionele ERLC liveries voor roleplay servers</p>
+</header>
+
+<nav>
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('prijzen')">Prijzen</button>
+<button onclick="showPage('portfolio')">Portfolio</button>
+<button onclick="showPage('bestellen')">Bestellen</button>
+<button onclick="showPage('tracking')">Tracking</button>
+<button onclick="showPage('reviewsPage')">Reviews</button>
+<button onclick="showPage('adminLogin')">Admin</button>
+</nav>
+
+<!-- ========== HOME ========== -->
+<section id="home" class="active">
+<div class="hero">
+<h1>Welkom bij Livery Design ER:LC</h1>
+<p>Wij maken professionele voertuig liveries voor ERLC roleplay servers.</p>
+<button class="roblox-btn" onclick="showPage('prijzen')">Bekijk onze packs</button>
+</div>
+
+<div class="card">
+<h2>Over onze service</h2>
+<p>Onze studio specialiseert zich in het maken van realistische politie, brandweer en ambulance liveries voor ERLC servers.</p>
+<p>Elke livery wordt zorgvuldig ontworpen zodat deze perfect past bij jouw server branding.</p>
+</div>
+
+<div class="card">
+<h2>Waarom klanten ons kiezen</h2>
+<ul>
+<li>Professionele ontwerpen</li>
+<li>Snelle levering</li>
+<li>Lage prijzen</li>
+<li>Custom liveries mogelijk</li>
+<li>Perfect voor roleplay servers</li>
+<li>Discord ondersteuning</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Extra statistieken</h2>
+<p>Servers die onze liveries gebruiken: 42+</p>
+<p>Tevreden klanten: 128+</p>
+<p>Totaal gemaakte ontwerpen: 316+</p>
+<p>Gemiddelde levertijd: 24 uur</p>
+<p>Gemiddelde review score: ⭐⭐⭐⭐⭐</p>
+</div>
+
+<div class="card">
+<h2>Waarom onze liveries uniek zijn</h2>
+<p>Onze ontwerpen worden gemaakt met professionele designsoftware en zijn geoptimaliseerd voor ERLC.</p>
+<ul>
+<li>Ultra hoge resolutie textures</li>
+<li>Perfecte schaal voor ERLC voertuigen</li>
+<li>Custom branding mogelijk</li>
+<li>Volledige server thema designs</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>Levering & ondersteuning</h2>
+<p>Na bestelling ontvang je jouw design meestal binnen 24 uur. Onze designers helpen je server er professioneel uit te laten zien.</p>
+</div>
+</section>
+
+<!-- ========== PRIJZEN ========== -->
+<section id="prijzen">
+
+<h2>Livery Packs</h2>
+
+<p class="intro">
+Kies uit onze professionele <b>ERLC Livery Packs</b>.  
+Alle designs worden speciaal gemaakt voor jouw server en passen perfect bij jouw branding.
+<br><br>
+🎨 Professioneel ontwerp • ⚡ Snelle levering • 🔧 Kleine aanpassingen inbegrepen
+</p>
+
+<div class="marketplace">
+
+<!-- Pack 1 -->
+<div class="pack">
+
+<div class="pack-top">
+<h3>Starter Pack</h3>
+<span class="badge">Beginner keuze</span>
+</div>
+
+<p class="price">50 Robux</p>
+<p><b>1 Livery</b></p>
+
+<ul class="features">
+<li>🎨 Uniek voertuig design</li>
+<li>🚓 Politie / Sheriff / Fire mogelijk</li>
+<li>⚡ Levering binnen 24 uur</li>
+<li>🔧 Kleine aanpassingen inbegrepen</li>
+</ul>
+
+<p class="description">
+Perfect voor kleine servers of individuele voertuigen.
+Ideaal als je wilt beginnen met professionele liveries.
+</p>
+
+<button class="roblox-btn" onclick="selectPack('1')">Bestel</button>
+
+</div>
+
+
+<!-- Pack 2 -->
+<div class="pack">
+
+<div class="pack-top">
+<h3>Server Pack</h3>
+<span class="badge">Beste prijs</span>
+</div>
+
+<p class="price">75 Robux</p>
+<p><b>2 Liveries</b></p>
+
+<ul class="features">
+<li>🚓 Twee voertuigen volledig ontworpen</li>
+<li>🎨 Consistente server stijl</li>
+<li>⚡ Levering binnen 24 uur</li>
+<li>🔧 Kleine wijzigingen mogelijk</li>
+</ul>
+
+<p class="description">
+Ideaal voor servers met meerdere voertuigen
+zoals politie en sheriff bijvoorbeeld.
+</p>
+
+<button class="roblox-btn" onclick="selectPack('2')">Bestel</button>
+
+</div>
+
+
+<!-- Pack 3 -->
+<div class="pack popular">
+
+<div class="pack-top">
+<h3>Premium Pack</h3>
+<span class="badge popular-badge">🔥 Meest gekozen</span>
+</div>
+
+<p class="price">110 Robux</p>
+<p><b>3 Liveries</b></p>
+
+<ul class="features">
+<li>🚓 Drie voertuigen volledig ontworpen</li>
+<li>🎨 Premium design details</li>
+<li>⚡ Snelle levering binnen 24 uur</li>
+<li>🔧 Gratis revisie mogelijk</li>
+<li>✨ Extra aandacht voor branding</li>
+</ul>
+
+<p class="description">
+Uitstekend voor servers die meerdere voertuigen
+professioneel willen laten ontwerpen.
+</p>
+
+<button class="roblox-btn" onclick="selectPack('3')">Bestel</button>
+
+</div>
+
+
+<!-- Pack 4 -->
+<div class="pack">
+
+<div class="pack-top">
+<h3>Full Server Design Pack</h3>
+<span class="badge">Server branding</span>
+</div>
+
+<p class="price">25-40 Robux per livery</p>
+
+<p><b>Volledige server livery set</b></p>
+
+<ul class="features">
+<li>Minimum: <b>5 liveries</b></li>
+<li>🚓 Politie / Sheriff / Fire / EMS</li>
+<li>🎨 Complete server branding</li>
+<li>⚡ Prioriteit levering</li>
+<li>🔧 Revisies mogelijk</li>
+</ul>
+
+<p class="description">
+Voor servers die een volledige branding willen
+met consistente voertuigen en professionele designs.
+</p>
+
+<button class="roblox-btn" onclick="selectPack('4')">Bestel</button>
+
+</div>
+
+</div>
+
+</section>
+<!-- ========== PORTFOLIO ========== -->
+<section id="portfolio">
+
+<h2>Portfolio</h2>
+
+<p>
+Hier zie je voorbeelden van ontwerpen
+die wij eerder gemaakt hebben voor ERLC servers.
+Onze designs worden gemaakt met professionele software
+en zijn perfect voor roleplay communities.
+</p>
+
+<style>
+
+.portfolio-slider{
+position:relative;
+max-width:900px;
+margin:auto;
+overflow:hidden;
+border-radius:12px;
+}
+
+.portfolio-slide{
+display:none;
+text-align:center;
+}
+
+.portfolio-slide img{
+width:100%;
+border-radius:12px;
+}
+
+.portfolio-info{
+background:#24244a;
+padding:25px;
+border-radius:12px;
+margin-top:15px;
+}
+
+.slider-btn{
+
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+background:#00000070;
+color:white;
+border:none;
+font-size:30px;
+padding:10px 15px;
+cursor:pointer;
+border-radius:6px;
+
+}
+
+.slider-left{
+left:10px;
+}
+
+.slider-right{
+right:10px;
+}
+
+.portfolio-section{
+margin-top:40px;
+}
+
+.review-box{
+
+background:#24244a;
+padding:20px;
+border-radius:12px;
+margin-bottom:20px;
+
+}
+
+</style>
+
+<div class="portfolio-slider">
+
+<button class="slider-btn slider-left" onclick="changeSlide(-1)">❮</button>
+<button class="slider-btn slider-right" onclick="changeSlide(1)">❯</button>
+
+<!-- Politie -->
+
+<div class="portfolio-slide">
+
+<img src="portfolio/185445.png">
+
+<div class="portfolio-info">
+
+<h3>Politie Livery</h3>
+
+<p>
+Professioneel politie design speciaal gemaakt
+voor ERLC roleplay servers.
+Realistische striping en duidelijke markeringen.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- KMAR -->
+
+<div class="portfolio-slide">
+
+<img src="portfolio/192008.png">
+
+<div class="portfolio-info">
+
+<h3>KMAR Livery</h3>
+
+<p>
+Koninklijke Marechaussee design
+geschikt voor airport en militaire roleplay servers.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- Ambulance -->
+
+<div class="portfolio-slide">
+
+<img src="portfolio/193453.png">
+
+<div class="portfolio-info">
+
+<h3>Ambulance Livery</h3>
+
+<p>
+Realistisch ambulance ontwerp voor EMS roleplay servers
+met duidelijke medische markeringen.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- Ambulance 2 -->
+
+<div class="portfolio-slide">
+
+<img src="portfolio/190943.png">
+
+<div class="portfolio-info">
+
+<h3>Ambulance Livery 2</h3>
+
+<p>
+Tweede ambulance design met aangepaste striping
+voor verschillende EMS voertuigen.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- Custom -->
+
+<div class="portfolio-slide">
+
+<img src="portfolio/191950.png">
+
+<div class="portfolio-info">
+
+<h3>Custom Livery</h3>
+
+<p>
+Volledig custom design gebaseerd
+op server branding en unieke kleuren.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="portfolio-section">
+
+<div class="card">
+
+<h2>Hoe onze designs gemaakt worden</h2>
+
+<p>
+Onze liveries worden gemaakt met professionele designsoftware.
+Wij letten op realistische striping,
+voertuig schaal en server branding.
+</p>
+
+<p>
+Elke livery wordt speciaal gemaakt
+voor Emergency Response Liberty County servers.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="portfolio-section">
+
+<h2>Klant reviews</h2>
+
+<div class="review-box">
+
+<b>Lucas</b>
+
+<p>
+"Geweldige kwaliteit! Mijn ERLC server ziet er
+veel professioneler uit met deze liveries."
+</p>
+
+</div>
+
+<div class="review-box">
+
+<b>Emma</b>
+
+<p>
+"Snelle levering en super goede communicatie
+via Discord. Zeker aan te raden."
+</p>
+
+</div>
+
+<div class="review-box">
+
+<b>Ryan</b>
+
+<p>
+"Beste ERLC designs die ik heb gezien.
+Zeer realistisch en professioneel."
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>Wil je ook een design voor jouw server?</h2>
+
+<p>
+Bestel een professionele livery via onze bestelpagina.
+</p>
+
+<button class="roblox-btn" onclick="showPage('bestellen')">
+Bestel een livery
+</button>
+
+</div>
+
+
+<script>
+
+let slideIndex=0;
+
+function showSlides(){
+
+let slides=document.getElementsByClassName("portfolio-slide");
+
+for(let i=0;i<slides.length;i++){
+slides[i].style.display="none";
+}
+
+slideIndex++;
+
+if(slideIndex>slides.length){
+slideIndex=1;
+}
+
+slides[slideIndex-1].style.display="block";
+
+setTimeout(showSlides,5000);
+
+}
+
+function changeSlide(n){
+
+slideIndex += n-1
+
+let slides=document.getElementsByClassName("portfolio-slide");
+
+if(slideIndex>=slides.length){
+slideIndex=0
+}
+
+if(slideIndex<0){
+slideIndex=slides.length-1
+}
+
+for(let i=0;i<slides.length;i++){
+slides[i].style.display="none";
+}
+
+slides[slideIndex].style.display="block"
+
+}
+
+showSlides()
+
+</script>
+
+</section>
+<!-- ========== BESTELLEN ========== -->
+<section id="bestellen">
+
+<h2>Bestelling plaatsen</h2>
+
+<p class="intro">
+Gebruik het formulier hieronder om jouw <b>ERLC Livery Pack</b> te bestellen.
+Na het kiezen van een pack verschijnt automatisch de juiste Roblox betaal link.
+</p>
+
+<div class="order-container">
+
+<!-- INFO CARD -->
+
+<div class="card info-card">
+
+<h3>Belangrijke informatie</h3>
+
+<ul>
+<li>⚡ Levertijd: meestal binnen <b>24 uur</b></li>
+<li>🎨 Alle ontwerpen speciaal gemaakt voor <b>ERLC</b></li>
+<li>🚓 Custom server branding mogelijk</li>
+<li><b>Full server designs via Discord</b></li>
+</ul>
+
+<p>
+Discord support:  
+<a href="https://discord.gg/v5nBgFGA" target="_blank">Join Discord</a>
+</p>
+
+</div>
+
+
+<!-- FORM -->
+
+<form id="orderForm" class="order-form">
+
+<h3>Stap 1 — Kies je pack</h3>
+
+<select id="pack" onchange="updatePaymentLink()">
+<option value="">Selecteer een pack</option>
+<option value="1">Starter Pack (1 Livery - 50 Robux)</option>
+<option value="2">Server Pack (2 Liveries - 75 Robux)</option>
+<option value="3">Premium Pack (3 Liveries - 110 Robux)</option>
+<option value="4">Volledige Server Design (5+ liveries)</option>
+</select>
+
+
+<h3>Stap 2 — Roblox informatie</h3>
+
+<input id="username" placeholder="Roblox username">
+
+
+<h3>Stap 3 — Server info (optioneel)</h3>
+
+<input id="serverName" placeholder="Server naam">
+
+<input id="serverType" placeholder="Type server (RP / Public / Private)">
+
+
+<h3>Stap 4 — Design details</h3>
+
+<textarea id="details" placeholder="Beschrijf kleuren, tekst, logo's, voertuigen etc."></textarea>
+
+
+<h3>Extra info voor volledige server designs</h3>
+
+<p>Aantal liveries:</p>
+
+<input id="liveryAmount"
+type="number"
+min="5"
+placeholder="Aantal liveries (min 5)"
+oninput="calculateServerPrice()">
+
+<p>
+Geschatte prijs:  
+<b><span id="priceMin">0</span> - <span id="priceMax">0</span> Robux</b>
+</p>
+
+<textarea id="serverDetails"
+placeholder="Beschrijf voertuigen (Police, Sheriff, Fire, EMS etc.)"></textarea>
+
+
+<div class="payment-section">
+
+<h3>Stap 5 — Betaling</h3>
+
+<p>Klik op de knop hieronder om via Roblox te betalen.</p>
+
+<a id="paymentButton"
+class="roblox-btn payment-btn"
+href="#"
+target="_blank"
+style="display:none">
+Betaal via Roblox
+</a>
+
+</div>
+
+
+<div class="form-buttons">
+
+<button type="submit" class="roblox-btn">
+Verstuur bestelling
+</button>
+
+<button type="button"
+class="roblox-btn"
+onclick="verifyPayment()">
+Controleer Roblox betaling
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+<div id="orderMessage"></div>
+
+</section>
+
+
+<!-- TRACKING -->
+
+<section id="tracking">
+
+<h2>Order Tracking</h2>
+
+<p>Voer je ordernummer in om de status van je bestelling te bekijken.</p>
+
+<input id="trackInput" placeholder="Ordernummer">
+
+<button class="roblox-btn" onclick="trackOrder()">
+Check status
+</button>
+
+<div id="trackingResult"></div>
+
+</section>
+
+
+
+<!-- REVIEWS -->
+
+<section id="reviewsPage">
+
+<h2>Klant reviews</h2>
+
+<div id="reviewsList"></div>
+
+<div class="review-form">
+
+<input id="reviewName" placeholder="Naam">
+
+<textarea id="reviewText" placeholder="Schrijf je review"></textarea>
+
+<select id="starRating">
+<option>⭐⭐⭐⭐⭐</option>
+<option>⭐⭐⭐⭐</option>
+<option>⭐⭐⭐</option>
+<option>⭐⭐</option>
+<option>⭐</option>
+</select>
+
+<button class="roblox-btn" onclick="addReview()">
+Plaats review
+</button>
+
+</div>
+
+</section>
+<!-- ========== ADMIN ========== -->
+<section id="adminLogin">
+<h2>Admin Login</h2>
+<input id="adminPass" placeholder="Wachtwoord">
+<button class="roblox-btn" onclick="adminLogin()">Login</button>
+</section>
+
+<section id="admin">
+<h2>Admin dashboard</h2>
+<select id="orderFilter" onchange="updateAdminDashboard()">
+<option value="all">Alle orders</option>
+<option value="In behandeling">In behandeling</option>
+<option value="Voltooid">Voltooid</option>
+<option value="Geannuleerd">Geannuleerd</option>
+</select>
+<div id="ordersList"></div>
+
+<div class="card">
+<h3>Update order via Discord command</h3>
+<p>Formaat: <b>ERLC-123456 Voltooid</b></p>
+<input id="discordCommand" placeholder="Typ ordernummer en status">
+<button class="roblox-btn" onclick="discordUpdateOrder()">Update via Discord</button>
+<div id="discordUpdateResult"></div>
+</div>
+</section>
+
+<footer>© 2026 Livery Design ERLC</footer>
+<div id="livePurchase"></div>
+<div id="lightbox" onclick="closeLightbox()"><img id="lightboxImg"></div>
+
+<script>
+// =====================
+// Data
+// =====================
+let orders=JSON.parse(localStorage.getItem("orders"))||[];
+let reviews=JSON.parse(localStorage.getItem("reviews"))||[];
+
+// =====================
+// Page navigation
+// =====================
+function showPage(id){
+  document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+// =====================
+// Select pack
+// =====================
+function selectPack(p){
+  showPage("bestellen");
+  document.getElementById("pack").value=p;
+}
+
+// =====================
+// Order submission
+// =====================
+document.getElementById("orderForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  let pack=document.getElementById("pack").value;
+  let user=document.getElementById("username").value;
+  let details=document.getElementById("details").value;
+  let serverName=document.getElementById("serverName").value;
+  let serverType=document.getElementById("serverType").value;
+  let serverDetails=document.getElementById("serverDetails").value;
+  let liveryAmount=document.getElementById("liveryAmount").value;
+  let id="ERLC-"+Math.floor(Math.random()*900000);
+  orders.push({id,pack,username:user,details,serverName,serverType,serverDetails,liveryAmount,status:"In behandeling"});
+orders.push({id,pack,username:user,details,status:"In behandeling"})
+
+sendOrderWebhook({
+id:id,
+username:user,
+pack:pack,
+details:details,
+status:"In behandeling"
+})
+  localStorage.setItem("orders",JSON.stringify(orders));
+  document.getElementById("orderMessage").innerHTML="Ordernummer: "+id+"<br>Betaal via Roblox Gamepass. Voor volledige server designs neem contact op via Discord.";
+  updateAdminDashboard();
+  updateSalesCounter();
+});
+
+// =====================
+// Admin dashboard
+// =====================
+function updateAdminDashboard(){
+  let filter=document.getElementById("orderFilter").value;
+  let html="";
+  orders.forEach((o,i)=>{
+    if(filter=="all"||o.status==filter){
+      html+=`<div class="card">Order: ${o.id}<br>User: ${o.username}<br>Status: <select onchange="changeOrderStatus(${i},this.value)">
+      <option ${o.status=="In behandeling"?"selected":""}>In behandeling</option>
+      <option ${o.status=="Voltooid"?"selected":""}>Voltooid</option>
+      <option ${o.status=="Geannuleerd"?"selected":""}>Geannuleerd</option>
+      </select></div>`;
+    }
+  });
+  document.getElementById("ordersList").innerHTML=html;
+}
+function changeOrderStatus(i,v){
+  orders[i].status=v;
+  localStorage.setItem("orders",JSON.stringify(orders));
+  updateAdminDashboard();
+}
+function adminLogin(){
+  if(document.getElementById("adminPass").value=="admin123"){
+    showPage("admin");
+    updateAdminDashboard();
+  }
+}
+
+// =====================
+// Reviews
+// =====================
+function addReview(){
+  reviews.push({name:document.getElementById("reviewName").value,text:document.getElementById("reviewText").value,stars:document.getElementById("starRating").value});
+  localStorage.setItem("reviews",JSON.stringify(reviews));
+  loadReviews();
+}
+function loadReviews(){
+  let html="";
+  reviews.forEach(r=>{
+    html+=`<div class="review"><b>${r.name}</b> ${r.stars}<p>${r.text}</p></div>`;
+  });
+  document.getElementById("reviewsList").innerHTML=html;
+}
+loadReviews();
+
+// =====================
+// Tracking
+// =====================
+function trackOrder() {
+  const input = document.getElementById("trackInput");
+  const result = document.getElementById("trackingResult");
+  const id = input.value.trim();
+
+  if (!id) {
+    result.innerHTML = `
+      <div class="track-error">
+        ⚠️ Voer eerst een ordernummer in
+      </div>
+    `;
+    return;
+  }
+
+  const order = orders.find(x => x.id === id);
+
+  if (!order) {
+    result.innerHTML = `
+      <div class="track-error">
+        ❌ Order niet gevonden
+      </div>
+    `;
+    return;
+  }
+
+  // status kleuren
+  let color = "#f39c12";
+
+  if (order.status === "Voltooid") color = "#2ecc71";
+  if (order.status === "Geannuleerd") color = "#e74c3c";
+
+  result.innerHTML = `
+    <div class="track-card">
+      <h3>📦 Order gevonden</h3>
+      
+      <div class="track-row">
+        <span>Order ID</span>
+        <b>${order.id}</b>
+      </div>
+
+      <div class="track-row">
+        <span>Status</span>
+        <b style="color:${color}">${order.status}</b>
+      </div>
+
+      <div class="track-progress">
+        <div class="progress-bar" style="background:${color};"></div>
+      </div>
+
+      <p class="track-note">
+        Bedankt voor je bestelling! Updates worden hier automatisch weergegeven.
+      </p>
+    </div>
+  `;
+}
+// =====================
+// Full server design price calculation
+// =====================
+function calculateServerPrice(){
+  let amount=document.getElementById("liveryAmount").value;
+  if(!amount || amount<5){
+    document.getElementById("priceMin").innerText=0;
+    document.getElementById("priceMax").innerText=0;
+    return;
+  }
+  let minPrice=amount*25;
+  let maxPrice=amount*40;
+  document.getElementById("priceMin").innerText=minPrice;
+  document.getElementById("priceMax").innerText=maxPrice;
+}
+
+// =====================
+// Lightbox portfolio
+// =====================
+document.querySelectorAll(".portfolio-grid img").forEach(img=>{
+  img.onclick=()=>{document.getElementById("lightboxImg").src=img.src;document.getElementById("lightbox").style.display="flex";}
+});
+function closeLightbox(){document.getElementById("lightbox").style.display="none";}
+
+// =====================
+// Live purchase simulation
+// =====================
+function fakeLivePurchase(){
+  let names=["Lucas","Noah","Emma","Ryan","Sophie"];
+  let packs=["1 Livery","2 Liveries","3 Liveries","Full Server"];
+  let name=names[Math.floor(Math.random()*names.length)];
+  let pack=packs[Math.floor(Math.random()*packs.length)];
+  let popup=document.getElementById("livePurchase");
+  popup.innerHTML=name+" kocht "+pack;
+  popup.style.display="block";
+  setTimeout(()=>popup.style.display="none",4000);
+}
+setInterval(fakeLivePurchase,12000);
+
+// =====================
+// Sales counter
+// =====================
+function updateSalesCounter(){
+  let total=0;
+  orders.forEach(o=>{
+    if(o.pack=="1") total+=50;
+    if(o.pack=="2") total+=75;
+    if(o.pack=="3") total+=110;
+    if(o.pack=="4" && o.liveryAmount) total+=o.liveryAmount*32.5;
+  });
+  console.log("Totaal Robux verkocht:",total);
+}
+
+</script>
+<!-- =============================== -->
+<!-- EXTRA PROFESSIONAL FEATURES -->
+<!-- =============================== -->
+
+<!-- FAQ PAGINA -->
+<section id="faqPage">
+<h2>Veelgestelde vragen</h2>
+
+<div class="card">
+<h3>Hoe lang duurt een livery?</h3>
+<p>De meeste liveries worden binnen 24 uur gemaakt. Grote server packs kunnen 48 tot 72 uur duren.</p>
+</div>
+
+<div class="card">
+<h3>Welke voertuigen kunnen jullie ontwerpen?</h3>
+<p>Wij maken liveries voor alle ERLC voertuigen zoals politie, sheriff, ambulance en fire department.</p>
+</div>
+
+<div class="card">
+<h3>Hoe betaal ik?</h3>
+<p>Betalen gebeurt via Roblox Gamepass of via instructies die je krijgt nadat je bestelling is geplaatst.</p>
+</div>
+
+<div class="card">
+<h3>Kan ik een volledig custom design krijgen?</h3>
+<p>Ja! Wij maken volledig custom designs met jouw kleuren, logo's en server branding.</p>
+</div>
+
+</section>
+
+
+<!-- HOE HET WERKT PAGINA -->
+<section id="howItWorksPage">
+
+<h2>Hoe werkt het bestellen?</h2>
+
+<div class="card">
+<h3>1. Kies een pack</h3>
+<p>Kies een pack op de prijzenpagina dat past bij het aantal voertuigen dat je wilt.</p>
+</div>
+
+<div class="card">
+<h3>2. Plaats je bestelling</h3>
+<p>Vul het bestel formulier in met jouw Roblox naam en design details.</p>
+</div>
+
+<div class="card">
+<h3>3. Betaling</h3>
+<p>Je ontvangt een Roblox Gamepass link om de betaling te doen.</p>
+</div>
+
+<div class="card">
+<h3>4. Design wordt gemaakt</h3>
+<p>Onze designers beginnen met het ontwerpen van jouw livery.</p>
+</div>
+
+<div class="card">
+<h3>5. Levering</h3>
+<p>Je ontvangt je design meestal binnen 24 uur via Discord.</p>
+</div>
+
+</section>
+
+
+<!-- DESIGN TIPS -->
+<section id="designTipsPage">
+
+<h2>Tips voor een goede livery</h2>
+
+<div class="card">
+<h3>Kies herkenbare kleuren</h3>
+<p>Gebruik kleuren die passen bij je server zodat spelers voertuigen snel herkennen.</p>
+</div>
+
+<div class="card">
+<h3>Gebruik een server logo</h3>
+<p>Een logo op de voertuigen maakt je server professioneler.</p>
+</div>
+
+<div class="card">
+<h3>Consistent design</h3>
+<p>Zorg dat politie, fire en EMS voertuigen dezelfde stijl gebruiken.</p>
+</div>
+
+<div class="card">
+<h3>Gebruik referenties</h3>
+<p>Je kunt foto's van echte politie auto's sturen zodat wij de stijl kunnen namaken.</p>
+</div>
+
+</section>
+
+
+<!-- TESTIMONIALS -->
+<section id="testimonialsPage">
+
+<h2>Klant ervaringen</h2>
+
+<div class="review">
+<b>Lucas ⭐⭐⭐⭐⭐</b>
+<p>Beste ERLC livery designer die ik heb gebruikt. Snelle levering en super kwaliteit.</p>
+</div>
+
+<div class="review">
+<b>Emma ⭐⭐⭐⭐⭐</b>
+<p>Onze hele server gebruikt nu deze liveries. Ze zien er professioneel uit.</p>
+</div>
+
+<div class="review">
+<b>Ryan ⭐⭐⭐⭐⭐</b>
+<p>Goede communicatie via Discord en perfecte designs.</p>
+</div>
+
+<div class="review">
+<b>Sophie ⭐⭐⭐⭐⭐</b>
+<p>Zeer goede service en snelle levering.</p>
+</div>
+
+</section>
+
+
+<!-- ORDER STATUS UITLEG -->
+<section id="orderStatusPage">
+
+<h2>Order status uitleg</h2>
+
+<div class="card">
+<h3>In behandeling</h3>
+<p>Je bestelling is ontvangen en staat in de wachtrij.</p>
+</div>
+
+<div class="card">
+<h3>Design bezig</h3>
+<p>Onze designers werken aan jouw livery.</p>
+</div>
+
+<div class="card">
+<h3>Voltooid</h3>
+<p>Het design is klaar en wordt via Discord geleverd.</p>
+</div>
+
+</section>
+
+
+<!-- EXTRA PORTFOLIO FILTER -->
+<script>
+
+function filterPortfolio(type){
+
+let items = document.querySelectorAll(".portfolio-grid img")
+
+items.forEach(img=>{
+
+if(type==="all"){
+img.style.display="block"
+return
+}
+
+if(img.src.toLowerCase().includes(type)){
+img.style.display="block"
+}else{
+img.style.display="none"
+}
+
+})
+
+}
+
+</script>
+
+<!-- ADMIN INKOMSTEN DASHBOARD -->
+<script>
+
+function calculateRevenue(){
+
+let orders=JSON.parse(localStorage.getItem("orders"))||[]
+
+let total=0
+
+orders.forEach(o=>{
+
+if(o.pack==="1") total+=50
+if(o.pack==="2") total+=75
+if(o.pack==="3") total+=110
+if(o.pack==="4" && o.liveryAmount){
+total+=o.liveryAmount*32.5
+}
+
+})
+
+console.log("Totale Robux inkomsten:",total)
+
+}
+
+calculateRevenue()
+
+</script>
+<script>
+
+// ================================
+// DISCORD WEBHOOK ORDER NOTIFIER
+// ================================
+
+function sendOrderToDiscord(orderData){
+
+const webhookURL = "https://discord.com/api/webhooks/1481317255223447694/2LQtpJVahXmAy4uikBwVkM8KKvMngMvGbSPniBARqxn89QKZYkiUoFdchOJYbMpu4a2u"
+
+const message = {
+username: "ERLC Order Bot",
+embeds: [
+{
+title: "Nieuwe Livery Bestelling",
+color: 5763719,
+fields: [
+{
+name: "Order ID",
+value: orderData.id,
+inline: true
+},
+{
+name: "Roblox Username",
+value: orderData.username,
+inline: true
+},
+{
+name: "Pack",
+value: orderData.pack,
+inline: true
+},
+{
+name: "Server Naam",
+value: orderData.serverName || "Niet opgegeven"
+},
+{
+name: "Server Type",
+value: orderData.serverType || "Niet opgegeven"
+},
+{
+name: "Design Details",
+value: orderData.details || "Geen details"
+},
+{
+name: "Aantal Liveries",
+value: orderData.liveryAmount || "Niet van toepassing"
+}
+],
+footer:{
+text:"ERLC Livery Website"
+},
+timestamp: new Date()
+}
+]
+}
+
+fetch(webhookURL,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(message)
+})
+
+}
+
+// ================================
+// ORDER FORM HOOK
+// ================================
+
+document.addEventListener("submit",function(e){
+
+if(e.target && e.target.id==="orderForm"){
+
+setTimeout(function(){
+
+let orderData = {
+id: "ERLC-"+Math.floor(Math.random()*999999),
+username: document.getElementById("username")?.value || "Unknown",
+pack: document.getElementById("pack")?.value || "Unknown",
+serverName: document.getElementById("serverName")?.value,
+serverType: document.getElementById("serverType")?.value,
+details: document.getElementById("details")?.value,
+liveryAmount: document.getElementById("liveryAmount")?.value
+}
+
+sendOrderToDiscord(orderData)
+
+},500)
+
+}
+
+})
+
+</script>
+<script>
+
+function calculateRevenue(){
+
+let orders=JSON.parse(localStorage.getItem("orders"))||[]
+
+let total=0
+
+orders.forEach(o=>{
+
+if(o.pack==="1") total+=50
+if(o.pack==="2") total+=75
+if(o.pack==="3") total+=110
+if(o.pack==="4" && o.liveryAmount){
+total+=o.liveryAmount*32.5
+}
+
+})
+
+console.log("Totale Robux inkomsten:",total)
+
+}
+
+calculateRevenue()
+
+</script>
+<script>
+
+function filterPortfolio(type){
+
+let items=document.querySelectorAll(".portfolio-grid img")
+
+items.forEach(img=>{
+
+if(type==="all"){
+img.style.display="block"
+return
+}
+
+if(img.src.toLowerCase().includes(type)){
+img.style.display="block"
+}else{
+img.style.display="none"
+}
+
+})
+
+}
+
+</script>
+<script>
+
+function exportOrders(){
+
+let orders=JSON.parse(localStorage.getItem("orders"))||[]
+
+let data=JSON.stringify(orders,null,2)
+
+let blob=new Blob([data],{type:"application/json"})
+
+let a=document.createElement("a")
+
+a.href=URL.createObjectURL(blob)
+a.download="orders.json"
+
+a.click()
+
+}
+
+</script>
+
+<script>
+
+let visits=localStorage.getItem("visits")||0
+
+visits++
+
+localStorage.setItem("visits",visits)
+
+console.log("Website bezoeken:",visits)
+
+</script>
+<script>
+
+function fakeLivePurchase(){
+
+let names=["Lucas","Emma","Ryan","Noah","Sophie"]
+let packs=["Starter Pack","Server Pack","Premium Pack"]
+
+let name=names[Math.floor(Math.random()*names.length)]
+let pack=packs[Math.floor(Math.random()*packs.length)]
+
+let popup=document.createElement("div")
+
+popup.innerHTML=name+" heeft zojuist "+pack+" gekocht"
+
+popup.style.position="fixed"
+popup.style.bottom="20px"
+popup.style.right="20px"
+popup.style.background="#24244a"
+popup.style.padding="15px"
+popup.style.borderRadius="10px"
+
+document.body.appendChild(popup)
+
+setTimeout(()=>{
+popup.remove()
+},4000)
+
+}
+
+setInterval(fakeLivePurchase,15000)
+
+</script>
+<script>
+
+function fakeLivePurchase(){
+
+let names=["Lucas","Emma","Ryan","Noah","Sophie"]
+let packs=["Starter Pack","Server Pack","Premium Pack"]
+
+let name=names[Math.floor(Math.random()*names.length)]
+let pack=packs[Math.floor(Math.random()*packs.length)]
+
+let popup=document.createElement("div")
+
+popup.innerHTML=name+" heeft zojuist "+pack+" gekocht"
+
+popup.style.position="fixed"
+popup.style.bottom="20px"
+popup.style.right="20px"
+popup.style.background="#24244a"
+popup.style.padding="15px"
+popup.style.borderRadius="10px"
+
+document.body.appendChild(popup)
+
+setTimeout(()=>{
+popup.remove()
+},4000)
+
+}
+
+setInterval(fakeLivePurchase,15000)
+
+</script>
+<script>
+
+function calculateRevenue(){
+
+let total=0
+
+orders.forEach(o=>{
+
+if(o.pack=="1") total+=50
+if(o.pack=="2") total+=75
+if(o.pack=="3") total+=110
+
+})
+
+console.log("Totale Robux verdiend:",total)
+
+}
+
+setInterval(calculateRevenue,5000)
+
+</script>
+<script>
+
+function calculateRevenue(){
+
+let total=0
+
+orders.forEach(o=>{
+
+if(o.pack=="1") total+=50
+if(o.pack=="2") total+=75
+if(o.pack=="3") total+=110
+
+})
+
+console.log("Totale Robux verdiend:",total)
+
+}
+
+setInterval(calculateRevenue,5000)
+
+</script>
+<script>
+
+function addLogoUpload(){
+
+let form=document.getElementById("orderForm")
+
+if(!form) return
+
+let label=document.createElement("label")
+label.innerText="Upload server logo"
+
+let input=document.createElement("input")
+input.type="file"
+
+form.appendChild(label)
+form.appendChild(input)
+
+}
+
+window.addEventListener("load",addLogoUpload)
+
+</script>
+<script>
+
+function exportOrders(){
+
+let data=JSON.stringify(orders,null,2)
+
+let blob=new Blob([data],{type:"application/json"})
+
+let a=document.createElement("a")
+
+a.href=URL.createObjectURL(blob)
+
+a.download="orders.json"
+
+a.click()
+
+}
+
+</script>
+<!-- ============================= -->
+<!-- EXTRA PROFESSIONAL FEATURES -->
+<!-- ============================= -->
+
+<script>
+
+/* =========================
+DISCORD ORDER WEBHOOK
+========================= */
+
+function sendOrderWebhook(order){
+
+const webhook="https://discord.com/api/webhooks/1481317255223447694/2LQtpJVahXmAy4uikBwVkM8KKvMngMvGbSPniBARqxn89QKZYkiUoFdchOJYbMpu4a2u"
+
+const data={
+username:"ERLC Order Bot",
+embeds:[
+{
+title:"Nieuwe ERLC bestelling",
+color:5763719,
+fields:[
+{name:"Order ID",value:order.id},
+{name:"Roblox Username",value:order.username},
+{name:"Pack",value:order.pack},
+{name:"Details",value:order.details || "Geen details"},
+{name:"Status",value:order.status}
+],
+timestamp:new Date()
+}
+]
+}
+
+fetch(webhook,{
+method:"POST",
+headers:{
+"Content-Type":"application/json"
+},
+body:JSON.stringify(data)
+})
+
+}
+
+/* =========================
+WEBSITE VISIT COUNTER
+========================= */
+
+let visits = localStorage.getItem("website_visits") || 0
+visits++
+localStorage.setItem("website_visits",visits)
+
+console.log("Website bezoeken:",visits)
+
+/* =========================
+REVENUE COUNTER
+========================= */
+
+function calculateRevenue(){
+
+let total=0
+
+orders.forEach(o=>{
+
+if(o.pack=="1") total+=50
+if(o.pack=="2") total+=75
+if(o.pack=="3") total+=110
+
+if(o.pack=="4" && o.liveryAmount){
+
+total += o.liveryAmount * 30
+
+}
+
+})
+
+console.log("Totale Robux inkomsten:",total)
+
+}
+
+setInterval(calculateRevenue,5000)
+
+/* =========================
+LIVE ORDER POPUP
+========================= */
+
+function fakeLivePurchase(){
+
+let names=["Lucas","Emma","Ryan","Noah","Sophie","Milan","Daan"]
+let packs=["Starter Pack","Server Pack","Premium Pack"]
+
+let name=names[Math.floor(Math.random()*names.length)]
+let pack=packs[Math.floor(Math.random()*packs.length)]
+
+let popup=document.createElement("div")
+
+popup.innerHTML=name+" kocht zojuist "+pack
+
+popup.style.position="fixed"
+popup.style.bottom="20px"
+popup.style.right="20px"
+popup.style.background="#24244a"
+popup.style.padding="15px"
+popup.style.borderRadius="10px"
+popup.style.boxShadow="0 0 10px rgba(0,0,0,0.5)"
+
+document.body.appendChild(popup)
+
+setTimeout(()=>{
+popup.remove()
+},4000)
+
+}
+
+setInterval(fakeLivePurchase,12000)
+
+/* =========================
+LOGO UPLOAD VOOR BESTELLING
+========================= */
+
+function addLogoUpload(){
+
+let form=document.getElementById("orderForm")
+
+if(!form) return
+
+let label=document.createElement("label")
+label.innerText="Upload server logo (optioneel)"
+
+let input=document.createElement("input")
+input.type="file"
+
+form.appendChild(label)
+form.appendChild(input)
+
+}
+
+window.addEventListener("load",addLogoUpload)
+
+/* =========================
+PORTFOLIO FILTER
+========================= */
+
+function filterPortfolio(type){
+
+let items=document.querySelectorAll(".portfolio-grid img")
+
+items.forEach(img=>{
+
+if(type==="all"){
+img.style.display="block"
+return
+}
+
+if(img.src.toLowerCase().includes(type)){
+img.style.display="block"
+}else{
+img.style.display="none"
+}
+
+})
+
+}
+
+/* =========================
+EXPORT ORDERS
+========================= */
+
+function exportOrders(){
+
+let data = JSON.stringify(orders,null,2)
+
+let blob = new Blob([data],{type:"application/json"})
+
+let a = document.createElement("a")
+
+a.href = URL.createObjectURL(blob)
+a.download = "orders.json"
+
+a.click()
+
+}
+
+/* =========================
+ADMIN EXTRA STATISTICS
+========================= */
+
+function adminExtraStats(){
+
+let admin = document.getElementById("admin")
+
+if(!admin) return
+
+let html = `
+
+<div class="card">
+
+<h2>Website statistieken</h2>
+
+<p>Bezoeken: ${visits}</p>
+
+<p>Orders totaal: ${orders.length}</p>
+
+<p>Website versie: 3.0</p>
+
+</div>
+
+`
+
+admin.insertAdjacentHTML("afterbegin",html)
+
+}
+
+window.addEventListener("load",adminExtraStats)
+
+/* =========================
+PORTFOLIO AUTO EXPAND
+========================= */
+
+function extendPortfolio(){
+
+let grid=document.querySelector(".portfolio-grid")
+
+if(!grid) return
+
+for(let i=0;i<8;i++){
+
+grid.insertAdjacentHTML("beforeend",
+`<img src="https://via.placeholder.com/400x220?text=ERLC+Design">`
+)
+
+}
+
+}
+
+window.addEventListener("load",extendPortfolio)
+
+</script>
+<script>
+
+/* =========================
+ROBLOX USER CHECK
+========================= */
+
+async function checkRobloxUser(username){
+
+try{
+
+let response = await fetch("https://users.roblox.com/v1/usernames/users",{
+
+method:"POST",
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+usernames:[username]
+})
+
+})
+
+let data = await response.json()
+
+if(data.data && data.data.length>0){
+
+console.log("Roblox gebruiker bestaat")
+
+return true
+
+}else{
+
+console.log("Roblox gebruiker niet gevonden")
+
+return false
+
+}
+
+}catch(e){
+
+console.log("Roblox check error")
+
+return false
+
+}
+
+}
+
+
+/* =========================
+BETALING CHECK SIMULATIE
+========================= */
+
+async function verifyPayment(){
+
+let username=document.getElementById("username").value
+
+if(!username){
+
+alert("Voer eerst je Roblox username in")
+
+return
+
+}
+
+let exists = await checkRobloxUser(username)
+
+if(exists){
+
+alert("Roblox account gevonden. Controleer of je de gamepass hebt gekocht.")
+
+}else{
+
+alert("Roblox username niet gevonden.")
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
